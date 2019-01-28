@@ -97,9 +97,17 @@
         #game-start:hover{
             background-color: rgb(235, 235, 235);
         }
+        #game-stop:hover{
+            background-color: rgb(235, 235, 235);
+        }
 
         .game-label{
             font-size: 120%;
+        }
+
+        .game-bad-label{
+            font-size: 140%;
+            color: red;
         }
 
         .form-control{
@@ -185,8 +193,21 @@
 
                 setTimeout(doTimer, 1000);
             }else{
-                $("#game-timer").text("00:00");
-                running = false;
+                if(running){
+                    running = false;
+                    endGame();
+                }
+            }
+        }
+
+        function endGame(){
+            $("#game-timer").text("00:00");
+
+            for(var i=0;i<totalCount;i++){
+                if(!(i in foundCountries)){
+                    var name = countryNames[i];
+                    countryMarkers[i]._icon.innerHTML = '<span class="game-bad-label">' + name + '</span>';
+                }
             }
         }
        
@@ -197,7 +218,7 @@
             //----------------------------------------------------------------------
             var CartoDB_VoyagerNoLabels = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}{r}.png', {
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-                maxZoom: 6,
+                maxZoom: 15,
                 minZoom: 2,
             });
 
@@ -224,7 +245,7 @@
 
             var gameControl = $("<div class='leaflet-control game-area'></div>");
             var gameContent = $("<div class='game-content'></div>");
-            gameContent.append("<div class='game-row'><input type='button' class='form-control' value='Start' id='game-start'><span id='game-timer'>15:00</span></div>")
+            gameContent.append("<div class='game-row'><input type='button' class='form-control' value='Start' id='game-start'><input type='button' class='form-control' value='Stop' id='game-stop'><span id='game-timer'>15:00</span></div>")
             gameContent.append("<div class='game-row'><input type='text' id='game-input' class='form-control' placeholder='Press start, enter country names, beat the timer!'><span id='game-score'>" + foundCount + "/" + totalCount +"</span></div>");
             gameControl.append(gameContent);
             $(".leaflet-top.leaflet-left").append(gameControl);
@@ -296,10 +317,26 @@
 
             $("#game-start").click(function(){
                 $(this).prop("disabled",true);
+                $("#game-stop").prop("disabled",false);
                 $(this).css("background-color", "#2bf259");
+                $(this).val("Started");
                 running = true;
                 doTimer();
-            })
+            });
+
+            $("#game-stop").click(function(){
+                if(running){
+                    $(this).prop("disabled",true);
+                    $(this).css("background-color", "#ad0800");
+                    $(this).val("Stopped");
+
+                    running = false;
+                    timeLeft = 0;
+                    endGame();
+                }
+            });
+
+
         });
 
 

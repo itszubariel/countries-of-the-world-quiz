@@ -229,7 +229,7 @@ countries = [
 	[49.016000,31.388000,"Ukraine","Ukraine"],
 	[-0.385000,-160.027000,"United States Minor Outlying Islands","United States Minor Outlying Islands"],
 	[-32.800000,-56.012000,"Uruguay","Oriental Republic of Uruguay"],
-	[39.622000,-98.606000,"United States","United States of America"],
+	[39.622000,-98.606000,"United States","United States of America","USA"],
 	[41.750000,63.170000,"Uzbekistan","Republic of Uzbekistan"],
 	[41.904000,12.451000,"Vatican City","Vatican City State"],
 	[13.248000,-61.194000,"Saint Vincent and the Grenadines","Saint Vincent and the Grenadines"],

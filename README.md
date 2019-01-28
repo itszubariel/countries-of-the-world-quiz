@@ -1,5 +1,7 @@
 # Countries of the World Quiz
 
+[Live version](http://calebrob.com/countries-of-the-world-quiz/).
+
 Based off of the [Sporcle Countries of the World Map Quiz](https://www.sporcle.com/games/g/world).
 
 The trickiest part of this quiz game is identifying when an user enters a "correct" country name. While "Most Serene Republic of San Marino" is the official name of a country, "San Marino" should also be accepted as a "correct" name for this peaceful city state, for the sake of fun. I accomplish this by accepting the "common" or "official" names of each country in the https://github.com/mledoze/countries/ dataset and providing a way to easily add country aliases (send a pull request!). The following section describes how the matching process works in more detail.

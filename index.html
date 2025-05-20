@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Countries of the World Quiz">
-    <meta name="author" content="Caleb Robinson">
+    <meta name="author" content="Zubariel">
 
     <title>Countries of the World Quiz</title>
 
@@ -228,19 +228,6 @@
                 zoom: START_ZOOM,
                 layers: [CartoDB_VoyagerNoLabels]
             });
-
-
-            //---------------------------------------------------------------------
-            // Setup custom controls
-            //----------------------------------------------------------------------
-            var logoControl = $("<div class='leaflet-control logo-area'></div>");
-            var logoContent = $("<div class='logo-content'></div>");
-            logoContent.append("<div class='logo-container'><span class='logo-heading'> Countries of the World Quiz </span></div>");
-            logoContent.append("<div class='logo-container'>Based on the Sporcle <a href='https://www.sporcle.com/games/g/world'>Countries of the World Map Quiz</a>.</div>");
-            logoContent.append("<div class='logo-container'>Open source on <a href='https://github.com/calebrob6/countries-of-the-world-quiz'>github</a>.</div>");
-            logoContent.append("<div class='logo-container'>Made by <a href='http://calebrob.com'>Caleb Robinson</a>.</div>");
-            logoControl.append(logoContent);
-            $(".leaflet-top.leaflet-left").append(logoControl);
             
 
             var gameControl = $("<div class='leaflet-control game-area'></div>");
